@@ -1,0 +1,36 @@
+MARC::SubjectMap
+
+MARC::SubjectMap is a set of modules and command line utilities for
+translating subject headings in your MARC data.
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+DEPENDENCIES
+
+    Test::More
+    Test::Exception
+    MARC::Record
+    Class::Accessor
+    XML::SAX
+    BerkeleyDB
+    Storable
+
+THANKYOUS
+
+This software was commissioned by Queens Borough Public Library who
+made its creation possible, and had the generosity to make the 
+software opensource. 
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2005 Ed Summers
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself. 
