@@ -10,7 +10,7 @@ use MARC::SubjectMap::Handler;
 use XML::SAX::ParserFactory;
 use IO::File;
 
-our $VERSION = '0.91';
+our $VERSION = '0.92';
 
 =head1 NAME
 
@@ -449,6 +449,8 @@ sub DESTROY {
 =item * L<MARC::SubjectMap::Rule>
 
 =item * L<MARC::SubjectMap::Field>
+
+=back
 
 =head1 AUTHORS
 

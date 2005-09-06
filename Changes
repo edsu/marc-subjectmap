@@ -1,5 +1,8 @@
 MARC::SubjectMap History
 
+v0.92   Tue Sep  6 16:29:55 2005
+	- pod fixes
+
 v0.91   Tue May  3 21:34:05 CDT 2005
         - adjust logging a bit more
 
