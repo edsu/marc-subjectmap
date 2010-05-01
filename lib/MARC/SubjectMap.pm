@@ -200,7 +200,6 @@ sub translateRecord {
     foreach my $field ( $self->fields() ) { 
 
         my @marcFields = $record->field( $field->tag() );
-        $self->log("found: " . @marcFields);
         my $fieldCount = 0;
 
         foreach my $marcField ( @marcFields ) {
