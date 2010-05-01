@@ -6,7 +6,7 @@ subject-remove - remove subject headings
 
 =head1 SYNOPSIS
 
-    subject-remove --in=in.dat --out=out.dat --sourc=bidex
+    subject-remove --in=in.dat --out=out.dat --source=bidex
 
 =head1 DESCRIPTION
 
