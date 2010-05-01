@@ -60,4 +60,3 @@ while ( my $r = $batch->next() ) {
 }
 
 print "\nremoved $fieldCount subject headings in $recordCount records.\n\n";
-

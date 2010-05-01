@@ -63,12 +63,10 @@ while ( my $record = $batch->next() ) {
 }
 
 my %stats = $map->stats();
-$outHandle->print( "\n" );
-$outHandle->print( "records processed: " . $stats{recordsProcessed} . "\n" );
-$outHandle->print( "headings added: " . $stats{fieldsAdded} . "\n" );
-$outHandle->print( "errors: " . $stats{errors} . "\n" );
 
-$map->writeConfig("argh");
+print "records processed: " , $stats{recordsProcessed}, "\n";
+print "headings added: " , $stats{fieldsAdded} , "\n";
+print "errors: " , $stats{errors} , "\n";
 
 sub fatal {
     print "fatal: " . localtime() . ": ".shift;
