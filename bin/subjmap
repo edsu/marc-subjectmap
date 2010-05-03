@@ -14,7 +14,7 @@ subjmap - translate subject headings in MARC records
 
 =head1 SYNOPSIS
 
-    subjmap --in=in.dat --out.out.dat --config=config.xml --log=map.log
+    subjmap --in=in.dat --out=out.dat --err=err.dat --config=config.xml --log=map.log
 
 =head1 DESCRIPTION
 
@@ -30,10 +30,11 @@ If a log file is not specified log info will be sent to STDERR.
 
 =cut
 
-my ($in,$out,$config,$log); 
+my ($in,$out,$err,$config,$log); 
 GetOptions(
     'in=s'      => \$in,
     'out=s'     => \$out,
+    'err=s'     => \$err,
     'config=s'  => \$config,
     'log:s'     => \$log,
 );
@@ -46,9 +47,14 @@ pod2usage( verbose => 1 ) if ! -f $config;
 my $map = MARC::SubjectMap->newFromConfig( $config );
 $map->setLog( $log ) if $log;
 
-## open output file
 my $outHandle = IO::File->new(">$out") 
     or fatal( "unable to open output file: $out" );
+
+my $errHandle = 0;
+if ($err) {
+    $errHandle = IO::File->new(">$err") 
+        or fatal( "unable to open error file: $err" );
+}
 
 ## open MARC batch file
 my $batch = MARC::Batch->new( 'USMARC', $in );
@@ -59,7 +65,12 @@ $batch->strict_off();
 ## if it could be translated
 while ( my $record = $batch->next() ) {
     my $new = $map->translateRecord( $record );
-    $outHandle->print( $new->as_usmarc() ) if $new;
+    if ($new) {
+        $outHandle->print( $new->as_usmarc() );
+    }
+    elsif ($errHandle) {
+        $errHandle->print( $record->as_usmarc() );
+    }
 }
 
 my %stats = $map->stats();
