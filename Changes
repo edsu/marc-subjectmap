@@ -1,5 +1,10 @@
 MARC::SubjectMap History
 
+v0.93 Thu May  6 10:23:54 EDT 2010
+        - log formatting changes
+        - added --err option to subjmap for outputting records that lacked
+          subject heading translations
+
 v0.92   Tue Sep  6 16:29:55 2005
 	- pod fixes
 
